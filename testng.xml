@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+    <class name="com.softsuave.test.LoginTest"/>
+      <class name="com.softsuave.test.ActivityTest"/>
+      <class name="com.softsuave.test.ActivityPageStatusTest"/>
+      <class name="com.softsuave.test.ForgetPasswordTest"/>
+      <class name="com.softsuave.test.SignUpTest"/>
+      <class name="com.softsuave.test.CreateManagementTest"/>
+      <class name="com.softsuave.test.ProjectFunctionalityTest"/>
+      
+      
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
