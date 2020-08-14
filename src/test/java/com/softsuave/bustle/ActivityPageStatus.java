@@ -17,59 +17,55 @@ public class ActivityPageStatus extends BaseClass
 	By totalActivityValue=By.xpath("(//p[@class='jss147'])[3]");
 	By totalNoofUsersValue=By.xpath("(//p[@class='jss147'])[4]");
 	
-
-	
-	
-	
-	public String totalHours()
+	public String getTotalHours()
 	{
-		String text=driver.findElement(totalHoursText).getText();
-		System.out.println(text);
-		return text;
+		String actualTotalHour= driver.findElement(totalHoursValue).getText();
+		return actualTotalHour;
 	}
-	public String totalBillableHours()
+	public String getTotalBillableHours()
 	{
-		String text=driver.findElement(totalBillableHoursText).getText();
-		System.out.println(text);
-		return text;	
+		String actualBillableTotalHour= driver.findElement(totalBillableHoursValue).getText();
+		return actualBillableTotalHour;	
 	}
-	public String totalActivity()
+	public String getTotalActivity()
 	{
-		String text=driver.findElement(totalActivityText).getText();
-		System.out.println(text);
-		return text;
+		String actualtotalActivityValue= driver.findElement(totalActivityValue).getText();
+		return actualtotalActivityValue;
 	}
-	public String totalNoofUsers()
+	public String getTotalNoofUsers()
 	{
-		String text=driver.findElement(totalNoofUsersText).getText();
-		System.out.println(text);
-		return text;
+		String actualtotalNoofUsersValue= driver.findElement(totalNoofUsersValue).getText();
+		return actualtotalNoofUsersValue;
 	}
 	
-	public void validation(String element)
+	public void validationActivityPage(String element)
 	{
 		switch(element) 
 		{
 		  case "Total Hours":
-			 String actualTotalHour= driver.findElement(totalHoursValue).getText();
+			 System.out.println(element);
+			 String actualTotalHour=getTotalHours();
 			 System.out.println(actualTotalHour);
 			 String expectedTotalHour="00:34";
 			 Assert.assertEquals(actualTotalHour, expectedTotalHour);
 			 break;
 		  case "Total Billable Hours":
-		  	 String actualBillableTotalHour= driver.findElement(totalBillableHoursValue).getText();
+			  System.out.println(element);
+		  	 String actualBillableTotalHour=getTotalBillableHours();
 		  	 System.out.println(actualBillableTotalHour);
 			 String expectedTotaBillablelHour="00:34";
 			 Assert.assertEquals(actualBillableTotalHour, expectedTotaBillablelHour);
 			 break;
 		  case "Total Activity":
-			 String actualtotalActivityValue= driver.findElement(totalActivityValue).getText();
+			  System.out.println(element);
+			 String actualtotalActivityValue=getTotalActivity();
 			 System.out.println(actualtotalActivityValue);
 			 String expectedtotalActivityValue="75%";
 			 Assert.assertEquals(actualtotalActivityValue, expectedtotalActivityValue);
 			 break;
 		  case "Total No of Users":
-		  	 String actualtotalNoofUsersValue= driver.findElement(totalNoofUsersValue).getText();
+			  System.out.println(element);
+		  	 String actualtotalNoofUsersValue= getTotalNoofUsers();
 		  	 System.out.println(actualtotalNoofUsersValue);
 			 String expectedtotalNoofUsersValue="1";
 			 Assert.assertEquals(actualtotalNoofUsersValue, expectedtotalNoofUsersValue);

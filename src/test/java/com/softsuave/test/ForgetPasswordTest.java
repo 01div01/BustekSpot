@@ -11,28 +11,28 @@ public class ForgetPasswordTest extends ForgetPassword
 	{
 		String email="ind1div@gmail.com";
 		String statusMessage=forgetPassword(email);
-		validation(statusMessage);
+		validationForgetPassword(statusMessage);
 	}
 	@Test
 	public void forgetPasswordInvalidEmailId()
 	{
 		String email="ind1dsdiv@gmail.com";
 		String statusMessage=forgetPassword(email);
-		validation(statusMessage);
+		validationForgetPassword(statusMessage);
 	}
 	@Test
 	public void forgetPasswordShortEmailId()
 	{
 		String email="ind1div";
 		forgetPasswordErrorMessage(email);
-		validation("Please enter a valid mail id.");
+		validationForgetPassword("Please enter a valid mail id.");
 	}
 	@Test
 	public void forgetPasswordNoData()
 	{
 		String email="";
 		forgetPasswordErrorMessage(email);
-		validation("required");
+		validationForgetPassword("required");
 	}
 	@Test
 	public void clickOnLoginLinkInForgotPassword()

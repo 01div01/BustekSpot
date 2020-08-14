@@ -14,7 +14,25 @@ public class ActivityTest extends ActivityPage{
 	login.loginToApplicationValid();
 	selectProject("Test Cases");
 	selectName("Divyanshu");
-	selectDateFromCalendar("7","July","2019");
+	selectDateFromCalendar("2","July","2019");
+	selectDateToCalendar("15","August","2019");
+	
+	}
+	@Test
+	public void activityPagetestParticularRangeButton() throws AWTException{
+	LoginPage login = new LoginPage();
+	login.loginToApplicationValid();
+	selectProject("Test Cases");
+	selectName("Divyanshu");
+	selectDateFromCalendar("2","July","2019");
+	
+	clickOnToday();
+	clickOnYestarday();
+	clickOnThisWeek();
+	clickOnLastWeek();
+	clickOnThisMonth();
+	clickOnLastMonth();
+	//selectDateToCalendar("15","August","2019");
 	}
 
 }

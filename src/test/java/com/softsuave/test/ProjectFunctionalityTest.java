@@ -7,6 +7,7 @@ import com.softsuave.bustle.ProjectFunctionality;
 
 public class ProjectFunctionalityTest extends ProjectFunctionality
 {
+	
 	@Test
 	public void projectFunctionality() throws InterruptedException
 	{
@@ -19,8 +20,26 @@ public class ProjectFunctionalityTest extends ProjectFunctionality
 		clickOnInviteMembers();
 		sendInviteMembers("abc@gmail.com");
 		String status=clickOnSaveButton();
-		validation(status);
+		validationProjectFunctionality(status);
 		
+	}
+	@Test
+	public void clickOnChageRole() throws InterruptedException
+	{
+		LoginPage l=new LoginPage();
+		l.loginToApplicationValid();
+		clickOnProjectButton();
+		Thread.sleep(5000);
+		clickOnChangeRole("Divyanshu");
+	}
+	@Test
+	public void clickOnRemoveMember() throws InterruptedException
+	{
+		LoginPage l=new LoginPage();
+		l.loginToApplicationValid();
+		clickOnProjectButton();
+		Thread.sleep(5000);
+		clickOnRemoveMember("Divyanshu");
 	}
 
 }

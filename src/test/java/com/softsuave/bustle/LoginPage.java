@@ -1,8 +1,10 @@
 package com.softsuave.bustle;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 
 
 public class LoginPage extends BaseClass
@@ -20,7 +22,6 @@ public class LoginPage extends BaseClass
 	
 	//By emailPlaceHolder=By.xpath("//input[@placeholder='Enter your email address']");
 	//By passwordPlaceHolder=By.xpath("//input[@placeholder='Enter your password']");
-	
 	
 	
 	public void loginToApplicationValid()
@@ -108,7 +109,7 @@ public class LoginPage extends BaseClass
 		
 		return actualErrorText;
 	}
-	public void validation(String status)
+	public void validationLoginPage(String status)
 	{
 		switch(status) 
 		{
@@ -135,21 +136,24 @@ public class LoginPage extends BaseClass
 			  		
 			  	}
 		    break;
-		  default:
+		  case "enter a valid mail":
 			  String actualTextErrorEmailId = driver.findElement(errormessage).getText();
-			  if(actualTextErrorEmailId.contains("enter a valid mail"))
-			  {
+			  
 				  System.out.println(actualTextErrorEmailId);
-				  String expectedTextErrorEmailId="Please enter a valid mail id.";
-				  Assert.assertEquals(actualTextErrorEmailId, expectedTextErrorEmailId);
-			  }
-			  else
-			  {
-				  System.out.println("Mandotary Filed"+" "+actualTextErrorEmailId);
-				  String expectedTextErrorEmailId="Required";
-				  Assert.assertEquals(actualTextErrorEmailId, expectedTextErrorEmailId);
-			  }
+				  String expectedTextErrorEnterEmailId="Please enter a valid mail id.";
+				  Assert.assertEquals(actualTextErrorEmailId, expectedTextErrorEnterEmailId);
+				  break;
+		  case "Required":
+			  
+				  String actualTextErrorEmailIdRequired = driver.findElement(errormessage).getText();
+				  System.out.println("Mandotary Filed"+" "+actualTextErrorEmailIdRequired);
+				  String expectedTextErrorEmailIdRequired="Required";
+				  Assert.assertEquals(actualTextErrorEmailIdRequired, expectedTextErrorEmailIdRequired);
+				  break;
+			  
 		}
-	}	
+	}
+	
+	
 	
 }

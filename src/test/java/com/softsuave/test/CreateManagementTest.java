@@ -28,8 +28,45 @@ public class CreateManagementTest extends CreateManagement
 		enterOrganisationDes("some discription");
 		//fileImage();
 		String status=submitButtonDuplicate();
-		validation(status);
+		validationCreateManagement(status);
 		
+	}
+	@Test
+	public void editManagementFunctionality() throws InterruptedException
+	{
+		LoginPage lp=new LoginPage();
+		lp.loginToApplicationValid();
+		
+		Thread.sleep(5000);
+		
+		editManagement("Dem12");
+		enterOrganisationNameEdit("Demo");
+		enterOrganisationDesEdit("some other des");
+		submitButton();
+		
+	}
+	@Test
+	public void deleteManagementFunctionality() throws InterruptedException
+	{
+		LoginPage lp=new LoginPage();
+		lp.loginToApplicationValid();
+		
+		Thread.sleep(5000);
+		
+		deleteManagement("Dem12");
+		Thread.sleep(3000);
+		//clickOnYesButton();
+		
+		
+	}
+	@Test
+	public void clickOnParticularManagementTest() throws InterruptedException
+	{
+		LoginPage lp=new LoginPage();
+		lp.loginToApplicationValid();
+		
+		Thread.sleep(5000);
+		clickOnParticularManagement("First Organisation");
 	}
 
 }

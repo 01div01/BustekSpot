@@ -47,7 +47,7 @@ public class SignUp extends BaseClass
 		String sucessMsgtext = driver.findElement(statusMsg).getText();
 		return sucessMsgtext;
 	}
-	public void validation(String status)
+	public void validationSignUp(String status)
 	{
 		switch(status) 
 		{
@@ -66,20 +66,20 @@ public class SignUp extends BaseClass
 			  		
 			  	
 		    break;
-		  default:
+		  case "enter a valid mail":
 			  String actualTextErrorEmailId = driver.findElement(errormessage).getText();
-			  if(actualTextErrorEmailId.contains("enter a valid mail"))
-			  {
+			  
 				  System.out.println(actualTextErrorEmailId);
 				  String expectedTextErrorEmailId="Please enter a valid mail id.";
 				  Assert.assertEquals(actualTextErrorEmailId, expectedTextErrorEmailId);
-			  }
-			  else
-			  {
-				  System.out.println("Mandotary Filed"+" "+actualTextErrorEmailId);
-				  String expectedTextErrorEmailId="Required";
-				  Assert.assertEquals(actualTextErrorEmailId, expectedTextErrorEmailId);
-			  }
+			  
+		  case "Required": 
+			 
+				  String actualTextErrorEmailIdReuired = driver.findElement(errormessage).getText();
+				  System.out.println("Mandotary Filed"+" "+actualTextErrorEmailIdReuired);
+				  String expectedTextErrorEmailIdRequired="Required";
+				  Assert.assertEquals(actualTextErrorEmailIdReuired, expectedTextErrorEmailIdRequired);
+			
 		}
 	}	
 	

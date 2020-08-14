@@ -13,14 +13,14 @@ public class ActivityPageStatusTest  extends ActivityPageStatus
 	{
 		LoginPage login = new LoginPage();
 		login.loginToApplicationValid();
-		text=totalHours();
-		validation(text);
-		text=totalBillableHours();
-		validation(text);
-		text=totalActivity();
-		validation(text);
-		text=totalNoofUsers();
-		validation(text);
+		//text=totalHours();
+		validationActivityPage("Total Hours");
+		//text=totalBillableHours();
+		validationActivityPage("Total Billable Hours");
+		//text=totalActivity();
+		validationActivityPage("Total Activity");
+		//text=totalNoofUsers();
+		validationActivityPage("Total No of Users");
 	}
 
 }

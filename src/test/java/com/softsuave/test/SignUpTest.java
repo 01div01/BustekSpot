@@ -16,7 +16,7 @@ public class SignUpTest extends SignUp
 		enterPass("1234567@aA");
 		enterConfirmPass("1234567@aA");
 		String status=clickOnSubmit();
-		validation(status);
+		validationSignUp(status);
 	}
 	@Test
 	public void signUpAppOldUser()
@@ -27,7 +27,7 @@ public class SignUpTest extends SignUp
 		enterPass("1234567@aA");
 		enterConfirmPass("1234567@aA");
 		String status=clickOnSubmit();
-		validation(status);
+		validationSignUp(status);
 	}
 	@Test
 	public void signUpAppInvalid()
@@ -41,6 +41,7 @@ public class SignUpTest extends SignUp
 		st.clickOnSubmit();
 		st.sizeText();
 		st.getText();
+		validationSignUp("Required");
 	}
 	
 

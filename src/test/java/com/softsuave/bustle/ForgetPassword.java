@@ -60,7 +60,7 @@ public class ForgetPassword extends BaseClass{
 		String expectedLoginText="Sign in to your account";
 		Assert.assertEquals(acutualLoginText, expectedLoginText);
 	}
-	public void validation(String status)
+	public void validationForgetPassword(String status)
 	{
 		switch(status) 
 		{

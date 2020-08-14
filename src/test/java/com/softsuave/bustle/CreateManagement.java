@@ -1,6 +1,7 @@
 package com.softsuave.bustle;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class CreateManagement extends BaseClass
@@ -14,6 +15,14 @@ public class CreateManagement extends BaseClass
 	By submitBut=By.xpath("//button[@class='of-submit-btn']");
 	By statusMsg = By.xpath("//div[@class='message-sec']/p[1]");
 	By statusTxt=By.xpath("//div[@class='message-sec']/p[2]");
+	
+	By editButton=By.xpath("(//li[@role='menuitem'])[1]");
+	By deleteButton=By.xpath("(//li[@role='menuitem'])[2]");
+	
+	By yesButoon=By.xpath("//button[@class='jss117']");
+	By noButton=By.xpath("//button[@class='jss116']");
+	
+	
 	
 	public void clickOnButton() throws InterruptedException
 	{
@@ -47,7 +56,54 @@ public class CreateManagement extends BaseClass
 		String actualMessage = driver.findElement(statusMsg).getText();
 		return actualMessage;
 	}
-	public void validation(String status)
+	public void editManagement(String managementName)
+	{
+		driver.findElement(clickOnButton).click();
+		driver.findElement(organiseButton).click();
+		String xpath="((//span[text()='Replace'])/../following-sibling::div[1]/button/span)[1]";
+		xpath = xpath.replace("Replace", managementName);
+		
+		WebElement taskOption = driver.findElement(By.xpath(xpath));
+		taskOption.click();
+		driver.findElement(editButton).click();
+		
+	}
+	public void deleteManagement(String managementName)
+	{
+		driver.findElement(clickOnButton).click();
+		driver.findElement(organiseButton).click();
+		String xpath="((//span[text()='Replace'])/../following-sibling::div[1]/button/span)[1]";
+		xpath = xpath.replace("Replace", managementName);
+		
+		WebElement taskOption = driver.findElement(By.xpath(xpath));
+		taskOption.click();
+		driver.findElement(deleteButton).click();
+	}
+	public void clickOnYesButton()
+	{
+		driver.findElement(yesButoon).click();
+	}
+	public void enterOrganisationNameEdit(String name)
+	{
+		driver.findElement(organisationName).clear();
+		driver.findElement(organisationName).sendKeys(name);
+	}
+	public void enterOrganisationDesEdit(String name)
+	{
+		driver.findElement(organisationDes).clear();
+		driver.findElement(organisationDes).sendKeys(name);
+	}
+	
+	public void clickOnParticularManagement(String managementName)
+	{
+		driver.findElement(clickOnButton).click();
+		String xpath="//*[text()='Replace']";
+		xpath=xpath.replace("Replace", managementName);
+		WebElement managementOption = driver.findElement(By.xpath(xpath));
+		managementOption.click();
+		
+	}
+	public void validationCreateManagement(String status)
 	{
 		switch(status) 
 		{

@@ -1,6 +1,7 @@
 package com.softsuave.bustle;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class ProjectFunctionality extends BaseClass 
@@ -13,6 +14,13 @@ public class ProjectFunctionality extends BaseClass
 	By saveButton=By.xpath("//button[text()='Save']");
 	By statusMsg = By.xpath("//div[@class='message-sec']/p[1]");
 	By statusTxt=By.xpath("//div[@class='message-sec']/p[2]");
+	
+	By changeRoleButton=By.xpath("(//li[@role='menuitem'])[1]");
+	By removeButton=By.xpath("(//li[@role='menuitem'])[2]");
+	
+	By yesButoon=By.xpath("//button[@class='jss117']");
+	By noButton=By.xpath("//button[@class='jss116']");
+	
 	public void clickOnProjectButton()
 	{
 		driver.findElement(projectButton).click();	
@@ -47,7 +55,28 @@ public class ProjectFunctionality extends BaseClass
 		return actualMessage;
 		
 	}
-	public void validation(String status)
+	public void clickOnChangeRole(String userName)
+	{
+		String xpath="((//span[text()='Replace'])[1]/../following-sibling::div[2]/button)[1]";
+		xpath = xpath.replace("Replace", userName);
+		
+		WebElement taskOption = driver.findElement(By.xpath(xpath));
+		taskOption.click();
+		
+		driver.findElement(changeRoleButton).click();
+	}
+	
+	public void clickOnRemoveMember(String userName)
+	{
+		String xpath="((//span[text()='Replace'])[1]/../following-sibling::div[2]/button)[1]";
+		xpath = xpath.replace("Replace", userName);
+		
+		WebElement taskOption = driver.findElement(By.xpath(xpath));
+		taskOption.click();
+		
+		driver.findElement(removeButton).click();
+	}
+	public void validationProjectFunctionality(String status)
 	{
 		switch(status) 
 		{
