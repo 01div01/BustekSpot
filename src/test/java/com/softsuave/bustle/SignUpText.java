@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
+
 public class SignUpText extends BaseClass{
 	
 	int n=0;

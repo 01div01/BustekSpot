@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.softsuave.test.TaskTest">
+      <class name="com.softsuave.test.ExtraFunctionalityTest">
         <methods>
           <include name="driverInitialization"/>
-          <include name="cancleTaskTestFunctionality"/>
-          <include name="editFunctionality"/>
-          <include name="clickOnTaskBeforeAllMethod"/>
-          <include name="deleteFunctionalityYes"/>
+          <include name="projectFunctionality"/>
+          <include name="loginAsSuperAdmin"/>
+          <include name="close"/>
         </methods>
-      </class> <!-- com.softsuave.test.TaskTest -->
+      </class> <!-- com.softsuave.test.ExtraFunctionalityTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

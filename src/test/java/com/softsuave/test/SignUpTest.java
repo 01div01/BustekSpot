@@ -7,18 +7,20 @@ import com.softsuave.bustle.SignUpText;
 
 public class SignUpTest extends SignUp
 {
-	@Test
+	@Test(priority =1)
 	public void signUpAppNewUser()
 	{
 		clickOnSignUp();
-		enterEmail("dimcsdfs@gmail.com");
+		double n=Math.random();
+		System.out.println("diddf"+n+"s@gmail.com");
+		enterEmail("diddf"+n+"s@gmail.com");
 		enterName("div");
 		enterPass("1234567@aA");
 		enterConfirmPass("1234567@aA");
 		String status=clickOnSubmit();
 		validationSignUp(status);
 	}
-	@Test
+	@Test(priority =1)
 	public void signUpAppOldUser()
 	{
 		clickOnSignUp();
@@ -29,7 +31,7 @@ public class SignUpTest extends SignUp
 		String status=clickOnSubmit();
 		validationSignUp(status);
 	}
-	@Test
+	@Test(priority =1)
 	public void signUpAppInvalid()
 	{
 		SignUpText st=new SignUpText();
@@ -42,6 +44,14 @@ public class SignUpTest extends SignUp
 		st.sizeText();
 		st.getText();
 		validationSignUp("Required");
+	}
+	@Test (priority =2)
+	public void signUpAppLoginLink()
+	{
+		SignUpText st=new SignUpText();
+		st.clickOnSignUp();
+		clickOnSigninLink();
+		validationSignUp("LoginUrl");
 	}
 	
 

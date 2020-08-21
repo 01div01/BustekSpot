@@ -6,38 +6,45 @@ import com.softsuave.bustle.ForgetPassword;
 
 public class ForgetPasswordTest extends ForgetPassword
 {
-	@Test
+	@Test(priority=1)
 	public void forgetPasswordValidEmailId()
 	{
 		String email="ind1div@gmail.com";
 		String statusMessage=forgetPassword(email);
 		validationForgetPassword(statusMessage);
 	}
-	@Test
+	@Test(priority=1)
 	public void forgetPasswordInvalidEmailId()
 	{
 		String email="ind1dsdiv@gmail.com";
 		String statusMessage=forgetPassword(email);
 		validationForgetPassword(statusMessage);
 	}
-	@Test
+	@Test(priority=1)
 	public void forgetPasswordShortEmailId()
 	{
 		String email="ind1div";
 		forgetPasswordErrorMessage(email);
 		validationForgetPassword("Please enter a valid mail id.");
 	}
-	@Test
+	@Test(priority=1)
 	public void forgetPasswordNoData()
 	{
 		String email="";
 		forgetPasswordErrorMessage(email);
 		validationForgetPassword("required");
 	}
-	@Test
+	@Test(priority=1)
 	public void clickOnLoginLinkInForgotPassword()
 	{
 		getLoginLink();
+	}
+	@Test(priority=2)
+	public void clickOnLogin()
+	{
+		clickOnForgetPassword();
+		clickOnLoginLink();
+		validationForgetPassword("LoginUrl");
 	}
 
 }

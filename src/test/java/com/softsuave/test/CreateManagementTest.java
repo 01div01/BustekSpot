@@ -1,24 +1,45 @@
 package com.softsuave.test;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.softsuave.bustle.CreateManagement;
 import com.softsuave.bustle.LoginPage;
+import com.softsuave.bustle.SignOutFunctionality;
 
+@Listeners(com.softsuave.test.ListenerTest.class)
 public class CreateManagementTest extends CreateManagement
 {
-	@Test
+	public void signOut() throws InterruptedException
+	{
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		SignOutFunctionality s=new SignOutFunctionality();
+		s.clickOnSignOut();
+	}
+	@Test(priority =1)
 	public void createOrganisation() throws InterruptedException
 	{
 		LoginPage lp=new LoginPage();
 		lp.loginToApplicationValid();
 		clickOnButton();
-		enterOrganisationName("First12 Organisation");
+		enterOrganisationName("First Organisation");
 		enterOrganisationDes("some discription");
 		//fileImage();
 		submitButton();
+		signOut();
 	}
-	@Test
+	@Test(priority =1)
+	public void organisationPressBack() throws InterruptedException
+	{
+		LoginPage lp=new LoginPage();
+		lp.loginToApplicationValid();
+		clickOnButton();
+		clickOnBackButton();
+		validationCreateManagement("Back");
+		//fileImage();
+		signOut();
+	}
+	@Test (priority=2)
 	public void createOrganisationDublicates() throws InterruptedException
 	{
 		LoginPage lp=new LoginPage();
@@ -29,44 +50,52 @@ public class CreateManagementTest extends CreateManagement
 		//fileImage();
 		String status=submitButtonDuplicate();
 		validationCreateManagement(status);
-		
+		Thread.sleep(2000);
+		driver.navigate().back();
+		signOut();
 	}
-	@Test
+	@Test(priority =3)
 	public void editManagementFunctionality() throws InterruptedException
 	{
 		LoginPage lp=new LoginPage();
 		lp.loginToApplicationValid();
-		
 		Thread.sleep(5000);
-		
-		editManagement("Dem12");
+		editManagement("First Organisation");
 		enterOrganisationNameEdit("Demo");
 		enterOrganisationDesEdit("some other des");
 		submitButton();
-		
+		signOut();;
 	}
-	@Test
+	@Test (priority =5)
 	public void deleteManagementFunctionality() throws InterruptedException
 	{
 		LoginPage lp=new LoginPage();
 		lp.loginToApplicationValid();
-		
 		Thread.sleep(5000);
-		
-		deleteManagement("Dem12");
-		Thread.sleep(3000);
-		//clickOnYesButton();
-		
-		
+		deleteManagement("Demo");
+		Thread.sleep(2000);
+		clickOnYesButton();
+		signOut();
 	}
-	@Test
+	@Test (priority =4)
 	public void clickOnParticularManagementTest() throws InterruptedException
 	{
 		LoginPage lp=new LoginPage();
 		lp.loginToApplicationValid();
-		
 		Thread.sleep(5000);
-		clickOnParticularManagement("First Organisation");
+		clickOnParticularManagement("Demo Test Click");
+		signOut();;
 	}
-
+	@Test (priority =4)
+	public void clickOnParticularManagementTestAndResfresh() throws InterruptedException
+	{
+		LoginPage lp=new LoginPage();
+		lp.loginToApplicationValid();
+		Thread.sleep(5000);
+		clickOnParticularManagement("Demo Test Click");
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		validationCreateManagement("Refresh");
+		signOut();;
+	}
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+
 public class MembersFunctionality extends BaseClass
 {
 	By membersButton=By.xpath("(//span[text()='Members'])[1]");
@@ -54,9 +55,10 @@ public class MembersFunctionality extends BaseClass
 		WebElement projectOption = driver.findElement(By.xpath(xpath));
 		projectOption.click();
 	}
-	public void selectRole(String roleName)
+	public void selectRole(String roleName) throws InterruptedException
 	{
-		By roleDropDown = By.xpath("(//div[@class=' css-1wa3eu0-placeholder'])[2]");
+		Thread.sleep(1000);
+		By roleDropDown = By.xpath("//label[text()='Roles']//parent::div//div[span]");
 		waitForElement(roleDropDown);
 		WebElement roleElement = driver.findElement(roleDropDown);
 		roleElement.click();
@@ -114,7 +116,7 @@ public class MembersFunctionality extends BaseClass
 		driver.findElement(removeInviteButton).click();
 	}
 	
-	public void clickOnMemberList()
+	public void clickOnMemberList() throws InterruptedException
 	{
 		driver.findElement(memberList).click();
 	}

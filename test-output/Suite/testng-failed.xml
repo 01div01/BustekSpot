@@ -3,12 +3,68 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.softsuave.test.CreateManagementTest">
+      <class name="com.softsuave.test.LoginTest">
         <methods>
           <include name="driverInitialization"/>
+          <include name="loginToApplicationValid"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.softsuave.test.LoginTest -->
+      <class name="com.softsuave.test.ProjectFunctionalityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="clickOnRemoveMember"/>
+          <include name="clickOnProjectBeforeAllMethod"/>
+          <include name="clickOnChageRole"/>
+          <include name="projectFunctionality"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ProjectFunctionalityTest -->
+      <class name="com.softsuave.test.MembersFunctionalityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="clickOnRemoveInviteeLink"/>
+          <include name="clickOnResendInvitationLink"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.softsuave.test.MembersFunctionalityTest -->
+      <class name="com.softsuave.test.CreateManagementTest">
+        <methods>
+          <include name="organisationPressBack"/>
+          <include name="driverInitialization"/>
+          <include name="clickOnParticularManagementTestAndResfresh"/>
           <include name="createOrganisationDublicates"/>
+          <include name="createOrganisation"/>
+          <include name="deleteManagementFunctionality"/>
+          <include name="close"/>
         </methods>
       </class> <!-- com.softsuave.test.CreateManagementTest -->
+      <class name="com.softsuave.test.ActivityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="activityPagetestclickOnThisMonth"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ActivityTest -->
+      <class name="com.softsuave.test.TaskTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="addTaskTestFunctionality"/>
+          <include name="editFunctionality"/>
+          <include name="clickOnTaskBeforeAllMethod"/>
+          <include name="deleteFunctionalityYes"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.softsuave.test.TaskTest -->
+      <class name="com.softsuave.test.ExtraFunctionalityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="projectFunctionality"/>
+          <include name="loginAsSuperAdmin"/>
+          <include name="clickOnOptions"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ExtraFunctionalityTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

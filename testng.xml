@@ -3,16 +3,20 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-    <class name="com.softsuave.test.LoginTest"/>
-      <class name="com.softsuave.test.ActivityTest"/>
-      <class name="com.softsuave.test.ActivityPageStatusTest"/>
-      <class name="com.softsuave.test.ForgetPasswordTest"/>
-      <class name="com.softsuave.test.SignUpTest"/>
-      <class name="com.softsuave.test.CreateManagementTest"/>
+    <class name="com.softsuave.test.ActivityTest"/>
+    <class name="com.softsuave.test.ActivityPageStatusTest"/>
+    
+      <class name="com.softsuave.test.SignOutTest"/>
+      <class name="com.softsuave.test.TaskTest"/>
       <class name="com.softsuave.test.ProjectFunctionalityTest"/>
+      <class name="com.softsuave.test.ExtraFunctionalityTest"/>
+      <class name="com.softsuave.test.CreateManagementTest"/>
+      <class name="com.softsuave.test.ForgetPasswordTest"/>
+      <class name="com.softsuave.test.LoginTest"/>
+      <class name="com.softsuave.test.SignUpTest"/>
       
-      
-      
+      <class name="com.softsuave.test.MembersFunctionalityTest"/>
+      <class name="com.softsuave.test.DownloadTrackerTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

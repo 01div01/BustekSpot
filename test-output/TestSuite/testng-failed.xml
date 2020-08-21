@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="methods" name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="methods" name="Test(failed)">
+    <classes>
+      <class name="com.softsuave.test.ActivityPageStatusTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="getActivityText"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ActivityPageStatusTest -->
+      <class name="com.softsuave.test.SignUpTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="signUpAppInvalid"/>
+          <include name="signUpAppNewUser"/>
+          <include name="signUpAppOldUser"/>
+        </methods>
+      </class> <!-- com.softsuave.test.SignUpTest -->
+      <class name="com.softsuave.test.ActivityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="activityPagetestParticularRangeButton"/>
+          <include name="activityPagetest"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ActivityTest -->
+      <class name="com.softsuave.test.ForgetPasswordTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="forgetPasswordShortEmailId"/>
+          <include name="forgetPasswordNoData"/>
+          <include name="forgetPasswordValidEmailId"/>
+          <include name="forgetPasswordInvalidEmailId"/>
+          <include name="clickOnLoginLinkInForgotPassword"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ForgetPasswordTest -->
+      <class name="com.softsuave.test.LoginTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="loginToApplicationInvalidPassword"/>
+          <include name="loginToApplicationInvalidEmail"/>
+          <include name="loginToApplicationValid"/>
+          <include name="loginToApplicationNoData"/>
+          <include name="loginToApplicationShortMail"/>
+        </methods>
+      </class> <!-- com.softsuave.test.LoginTest -->
+      <class name="com.softsuave.test.ProjectFunctionalityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="clickOnRemoveMember"/>
+          <include name="clickOnProjectBeforeAllMethod"/>
+          <include name="clickOnChageRole"/>
+          <include name="projectFunctionality"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ProjectFunctionalityTest -->
+      <class name="com.softsuave.test.CreateManagementTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="editManagementFunctionality"/>
+          <include name="clickOnParticularManagementTest"/>
+          <include name="createOrganisationDublicates"/>
+          <include name="createOrganisation"/>
+          <include name="deleteManagementFunctionality"/>
+        </methods>
+      </class> <!-- com.softsuave.test.CreateManagementTest -->
+      <class name="com.softsuave.test.ExtraFunctionalityTest">
+        <methods>
+          <include name="driverInitialization"/>
+          <include name="projectFunctionality"/>
+          <include name="loginAsSuperAdmin"/>
+          <include name="clickOnOptions"/>
+        </methods>
+      </class> <!-- com.softsuave.test.ExtraFunctionalityTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

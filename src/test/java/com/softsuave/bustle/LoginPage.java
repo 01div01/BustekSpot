@@ -6,89 +6,66 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 
-
 public class LoginPage extends BaseClass
 {
-	By emailID = By.xpath("//input[@name='email-id']");
-	By password = By.xpath("//input[@name='password']");
+	WebElement emailIDElement;
+	WebElement passwordElement ;
+	By emailID = By.xpath("//input[@placeholder='Enter your email address']");
+	By password = By.xpath("//input[@placeholder='Enter your password']");
 	By login = By.xpath("//button[text()='Login']");
 	By statusMsg = By.xpath("//div[@class='message-sec']/p[1]");
 	By statusTxt=By.xpath("//div[@class='message-sec']/p[2]");
-	/*By statusTextSucessFullLogin=By.xpath("//p[text()='SucessFully logged in']");
-	By statusTextWrongPassword=By.xpath("//p[text()='Wrong password entered']");
-	By statusTextNoUserFound=By.xpath("//p[text()='No User Found. Please Sign Up']");*/
 	
 	By errormessage=By.xpath("//label[@class='jss77']");
-	
-	//By emailPlaceHolder=By.xpath("//input[@placeholder='Enter your email address']");
-	//By passwordPlaceHolder=By.xpath("//input[@placeholder='Enter your password']");
-	
 	
 	public void loginToApplicationValid()
 	{
 		loginToApplicationValid("ind1div@gmail.com", "25111994");
 	}
-	
-	
-	public String loginToApplicationValid(String email, String pwd)
+	private void launch()
 	{
 		driver.get("http://bustle-spot.com/");
-		WebElement emailIDElement = driver.findElement(emailID);
-		WebElement passwordElement = driver.findElement(password);
-		
+		emailIDElement = driver.findElement(emailID);
+		passwordElement = driver.findElement(password);
+		//
+	}
+	public String loginToApplicationValid(String email, String pwd)
+	{
+		launch();
 		emailIDElement.sendKeys(email);
 		passwordElement.sendKeys(pwd);
 		returnWebElement(login).click();
-		
 		waitForElement(statusMsg);
 		String actualMessage = driver.findElement(statusMsg).getText();
 		return actualMessage;
-	
-
 	}
 	public String loginToApplicationInvalidEmail(String email, String pwd)
 	{
-		driver.get("http://bustle-spot.com/");
-		WebElement emailIDElement = driver.findElement(emailID);
-		WebElement passwordElement = driver.findElement(password);
-		
+		launch();
 		emailIDElement.sendKeys(email);
 		passwordElement.sendKeys(pwd);
 		returnWebElement(login).click();
-		
 		waitForElement(statusMsg);
 		String actualMessage = driver.findElement(statusMsg).getText();
 		return actualMessage;
-	
-
 	}
 	public String loginToApplicationInvalidCredentials(String email, String pwd)
 	{
-		driver.get("http://bustle-spot.com/");
-		WebElement emailIDElement = driver.findElement(emailID);
-		WebElement passwordElement = driver.findElement(password);
-		
+		launch();
 		emailIDElement.sendKeys(email);
 		passwordElement.sendKeys(pwd);
 		returnWebElement(login).click();
-		
 		waitForElement(statusMsg);
 		String actualMessage = driver.findElement(statusMsg).getText();
 		Assert.assertEquals("ERROR!", actualMessage);
 		return actualMessage;
-	
-
 	}
 	public String loginToApplicationShortMail(String email, String pwd)
 	{
-		driver.get("http://bustle-spot.com/");
-		WebElement emailIDElement = driver.findElement(emailID);
-		WebElement passwordElement = driver.findElement(password);
-		
+		launch();
 		emailIDElement.sendKeys(email);
 		passwordElement.sendKeys(pwd);
 		returnWebElement(login).click();
-		
 		waitForElement(errormessage);
 		String actualErrorText = driver.findElement(errormessage).getText();
 		
@@ -96,14 +73,10 @@ public class LoginPage extends BaseClass
 	}
 	public String loginToApplicationNoData(String email, String pwd)
 	{
-		driver.get("http://bustle-spot.com/");
-		WebElement emailIDElement = driver.findElement(emailID);
-		WebElement passwordElement = driver.findElement(password);
-		
+		launch();
 		emailIDElement.sendKeys(email);
 		passwordElement.sendKeys(pwd);
 		returnWebElement(login).click();
-		
 		waitForElement(errormessage);
 		String actualErrorText = driver.findElement(errormessage).getText();
 		
@@ -116,7 +89,7 @@ public class LoginPage extends BaseClass
 		  case "SUCCESS!":
 			String actualTextSucess=driver.findElement(statusTxt).getText();
 		    System.out.println(actualTextSucess);
-		    String expectedTextSucess="SucessFully logged in";
+		    String expectedTextSucess="SucessFully logg in";
 		    Assert.assertEquals(expectedTextSucess, actualTextSucess);
 		    break;
 		  case "ERROR!":

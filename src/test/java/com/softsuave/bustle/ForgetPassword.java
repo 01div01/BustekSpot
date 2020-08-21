@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 
+
 public class ForgetPassword extends BaseClass{
 	
 	By forgetlink=By.className("jss84");
@@ -16,12 +17,22 @@ public class ForgetPassword extends BaseClass{
 	By errormessage=By.xpath("//label[@class='jss77']");
 	By loginLink=By.xpath("//a[text()='Login']");
 	By loginPageVerification=By.xpath("//p[text()='Sign in to your account']");
-
-	public String forgetPassword(String email)
+	
+	public void clickOnForgetPassword()
 	{
 		driver.get("http://bustle-spot.com/login");
 		WebElement forgetpass = driver.findElement(forgetlink);
 		forgetpass.click();
+	}
+	public void clickOnLoginLink()
+	{
+		
+		driver.findElement(loginLink).click();
+	}
+
+	public String forgetPassword(String email)
+	{
+		clickOnForgetPassword();
 		WebElement forgetemailtext = driver.findElement(forgetemail);
 	
 		forgetemailtext.sendKeys(email);
@@ -35,9 +46,7 @@ public class ForgetPassword extends BaseClass{
 	}
 	public String forgetPasswordErrorMessage(String email)
 	{
-		driver.get("http://bustle-spot.com/login");
-		WebElement forgetpass = driver.findElement(forgetlink);
-		forgetpass.click();
+		clickOnForgetPassword();
 		WebElement forgetemailtext = driver.findElement(forgetemail);
 	
 		forgetemailtext.sendKeys(email);
@@ -51,9 +60,7 @@ public class ForgetPassword extends BaseClass{
 	}
 	public void getLoginLink()
 	{
-		driver.get("http://bustle-spot.com/login");
-		WebElement forgetpass = driver.findElement(forgetlink);
-		forgetpass.click();
+		clickOnForgetPassword();
 		WebElement loginLinkEle=driver.findElement(loginLink);
 		loginLinkEle.click();
 		String acutualLoginText=driver.findElement(loginPageVerification).getText();
@@ -87,6 +94,12 @@ public class ForgetPassword extends BaseClass{
 			  		
 			  	}
 		    break;
+		  case "LoginUrl":
+			  String actualURL=driver.getCurrentUrl();
+			  System.out.println(actualURL);
+			  String expectedURL="http://bustle-spot.com/login";
+			  Assert.assertEquals(actualURL, expectedURL);
+			  break;
 		  default:
 			  String actualTextErrorEmailId = driver.findElement(errormessage).getText();
 			  if(actualTextErrorEmailId.contains("enter a valid mail"))

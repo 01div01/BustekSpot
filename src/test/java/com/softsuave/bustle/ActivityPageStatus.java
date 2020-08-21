@@ -5,6 +5,8 @@ import org.testng.Assert;
 
 
 
+
+
 public class ActivityPageStatus extends BaseClass
 {
 	By totalHoursText=By.xpath("(//p[@class='jss146'])[1]");
@@ -46,21 +48,21 @@ public class ActivityPageStatus extends BaseClass
 			 System.out.println(element);
 			 String actualTotalHour=getTotalHours();
 			 System.out.println(actualTotalHour);
-			 String expectedTotalHour="00:34";
+			 String expectedTotalHour="01:43";
 			 Assert.assertEquals(actualTotalHour, expectedTotalHour);
 			 break;
 		  case "Total Billable Hours":
 			  System.out.println(element);
 		  	 String actualBillableTotalHour=getTotalBillableHours();
 		  	 System.out.println(actualBillableTotalHour);
-			 String expectedTotaBillablelHour="00:34";
+			 String expectedTotaBillablelHour="01:43";
 			 Assert.assertEquals(actualBillableTotalHour, expectedTotaBillablelHour);
 			 break;
 		  case "Total Activity":
 			  System.out.println(element);
 			 String actualtotalActivityValue=getTotalActivity();
 			 System.out.println(actualtotalActivityValue);
-			 String expectedtotalActivityValue="75%";
+			 String expectedtotalActivityValue="47%";
 			 Assert.assertEquals(actualtotalActivityValue, expectedtotalActivityValue);
 			 break;
 		  case "Total No of Users":

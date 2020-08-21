@@ -1,18 +1,34 @@
 package com.softsuave.bustle;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+
 
 public class SignOutFunctionality extends BaseClass{
-	By clcikOnProfile=By.xpath("(//*[@class='MuiIconButton-label'])[2]");
+	
 	By signOutButton=By.xpath("//*[text()='Signout']");
-	public void clickOnSignOut()
+	public void clickOnSignOut() throws InterruptedException
 	{
-		LoginPage l=new LoginPage();
-		l.loginToApplicationValid();
+		By clcikOnProfile=By.xpath("(//*[@class='MuiIconButton-label'])[2]");
+		waitForElementClickable(clcikOnProfile);
+		//Thread.sleep(1000);
 		
-		driver.findElement(clcikOnProfile).click();
+		//xpathPresent(clcikOnProfile);
+		
+		
+		
+//		WebElement element = driver.findElement(clcikOnProfile);
+//
+//		Actions actions = new Actions(driver);
+//
+//		actions.moveToElement(element).click().perform();
+		
+		WebElement profileClick=driver.findElement(clcikOnProfile);
+		profileClick.click();
+		//waitForElement(clcikOnProfile);
 		driver.findElement(signOutButton).click();
+		
+		
 	}
-
-
 }

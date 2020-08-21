@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 import org.testng.Assert;
 
+
 public class SignUp extends BaseClass
 {
 	By signUpLink=By.xpath("//a[@class='jss84' and text()='Sign Up']");
@@ -16,7 +17,14 @@ public class SignUp extends BaseClass
 	By statusMsg = By.xpath("//div[@class='message-sec']/p");
 	By statusTxt=By.xpath("//div[@class='message-sec']/p[2]");
 	By errormessage=By.xpath("//label[@class='jss77']");
+	By SigninLink=By.xpath("//a[text()='Sign In']");
 	
+	public void clickOnSigninLink()
+	{
+		
+		driver.findElement(SigninLink).click();
+	}
+
 	
 	
 	public void clickOnSignUp()
@@ -55,7 +63,7 @@ public class SignUp extends BaseClass
 			String actualTextSucess=driver.findElement(statusTxt).getText();
 		    System.out.println(actualTextSucess);
 		    String expectedTextSucess="You are successfully registered. Please check you email to receive the invite";
-		    Assert.assertEquals(expectedTextSucess, actualTextSucess);
+		    Assert.assertEquals(actualTextSucess,expectedTextSucess );
 		    break;
 		  case "ERROR!":
 			  	
@@ -72,6 +80,7 @@ public class SignUp extends BaseClass
 				  System.out.println(actualTextErrorEmailId);
 				  String expectedTextErrorEmailId="Please enter a valid mail id.";
 				  Assert.assertEquals(actualTextErrorEmailId, expectedTextErrorEmailId);
+				  break;
 			  
 		  case "Required": 
 			 
@@ -79,6 +88,13 @@ public class SignUp extends BaseClass
 				  System.out.println("Mandotary Filed"+" "+actualTextErrorEmailIdReuired);
 				  String expectedTextErrorEmailIdRequired="Required";
 				  Assert.assertEquals(actualTextErrorEmailIdReuired, expectedTextErrorEmailIdRequired);
+				  break;
+		  case "LoginUrl":
+			  String actualURL=driver.getCurrentUrl();
+			  System.out.println(actualURL);
+			  String expectedURL="http://bustle-spot.com/login";
+			  Assert.assertEquals(actualURL, expectedURL);
+			  break;
 			
 		}
 	}	

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+
 public class CreateManagement extends BaseClass
 {
 	By clickOnButton=By.xpath("//div[@class='hmi-div']");
@@ -22,6 +23,8 @@ public class CreateManagement extends BaseClass
 	By yesButoon=By.xpath("//button[@class='jss117']");
 	By noButton=By.xpath("//button[@class='jss116']");
 	
+	By backButton=By.xpath("//button[@class='prev-btn act-prev-btn']");
+	
 	
 	
 	public void clickOnButton() throws InterruptedException
@@ -31,6 +34,11 @@ public class CreateManagement extends BaseClass
 		driver.findElement(clickOnButton).click();
 		driver.findElement(organiseButton).click();
 		driver.findElement(addOrganisationLink).click();
+	}
+	public void clickOnBackButton()
+	{
+		driver.findElement(backButton).click();
+		
 	}
 	public void enterOrganisationName(String name)
 	{
@@ -119,7 +127,17 @@ public class CreateManagement extends BaseClass
 			    String expectedText="Duplicate entry 'First Organisation' for key 'name_UNIQUE'";
 			    Assert.assertEquals(actualText, expectedText);
 			    break;
-			    
+		  case "Back":
+			  String actualURL=driver.getCurrentUrl();
+			  System.out.println(actualURL);
+			  String expectedURL="http://bustle-spot.com/organisation";
+			  Assert.assertEquals(actualURL, expectedURL);
+			    break;
+		  case "Refresh":
+			  String actualManagementText=driver.findElement(By.xpath("//div[@class='hmi-div']/parent::span/following-sibling::span")).getText();
+			  String expectedManagementText="Demo Test Click";
+			  Assert.assertEquals(actualManagementText, expectedManagementText);
+			    break;
 		}
 	}
 	

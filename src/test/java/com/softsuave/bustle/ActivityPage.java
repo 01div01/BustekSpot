@@ -11,27 +11,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 
+
 public class ActivityPage extends BaseClass
 {
 	By calendarIcon = By.xpath("//img[@alt='date-selector']");
 	By monthDropDown = By.xpath("//span[@class='rdrMonthPicker']/select");
 	By yearDropDown = By.xpath("//span[@class='rdrYearPicker']/select");
 	String dayInCalendar = "//span[@class='rdrDayNumber']/span[text()='Replace']";
-	//By totalNoofUsers=By.xpath("(//p[@class='jss147'])[4]");
-	
-	//By calenderStart=By.xpath("//*[@class='rdrStartEdge']");
 	By claenderEnd=By.xpath("//*[@class='rdrDateInput rdrDateDisplayItem rdrDateDisplayItemActive']");
-	
 	By todayButton=By.xpath("//*[text()='Today']");
 	By yestardayButton=By.xpath("//*[text()='Yesterday']");
 	By thisWeekButton=By.xpath("//*[text()='This Week']");
 	By lastWeekButton=By.xpath("//*[text()='Last Week']");
 	By thisMonthButton=By.xpath("//*[text()='This Month']");
 	By lastMonthButton=By.xpath("//*[text()='Yesterday']");
-	
 	By getDateValue=By.xpath("//input[@placeholder='Early']");
+	
 
-	public void selectDateFromCalendar(String day, String month, String year) throws AWTException{
+	public void selectDateFromCalendar(String day, String month, String year) throws AWTException
+	{
 
 	WebElement calendarElement = driver.findElement(calendarIcon);
 	calendarElement.click();
@@ -43,9 +41,6 @@ public class ActivityPage extends BaseClass
 	WebElement yearDropDownElement = driver.findElement(yearDropDown);
 	Select yeardd = new Select(yearDropDownElement);
 	yeardd.selectByVisibleText(year);
-	
-	
-
 	dayInCalendar = dayInCalendar.replace("Replace", day);
 	WebElement dayElement = driver.findElement(By.xpath(dayInCalendar));
 	dayElement.click();
@@ -71,10 +66,8 @@ public class ActivityPage extends BaseClass
 		WebElement dayElement = driver.findElement(By.xpath(dayInCalendar));
 		
 		dayElement.click();
-		//driver.findElement(totalNoofUsers).click();
-		//calendarElement.click();
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_ESCAPE);
+		pressESC();
+		
 
 		}
 		public void selectProject(String projectName)
@@ -104,39 +97,50 @@ public class ActivityPage extends BaseClass
 		namesOption.click();
 	}
 		public void clickOnLastMonth() throws AWTException {
-			// TODO Auto-generated method stub
+			
 			driver.findElement(lastMonthButton).click();
-			Robot robot = new Robot();
-			robot.keyPress(KeyEvent.VK_ESCAPE);
+			pressESC();
 		}
 
-		public void clickOnThisMonth() {
+		public void clickOnThisMonth() throws AWTException {
 			
 			driver.findElement(thisMonthButton).click();
+			pressESC();
 		}
 
-		public void clickOnLastWeek() {
+		public void clickOnLastWeek() throws AWTException {
 			
 			driver.findElement(lastWeekButton).click();
+			pressESC();
 		}
 
-		public void clickOnThisWeek() {
+		public void clickOnThisWeek() throws AWTException {
 			
 			driver.findElement(thisWeekButton).click();
+			pressESC();
 		}
 
-		public void clickOnYestarday() {
+		public void clickOnYestarday() throws AWTException {
 	
 			driver.findElement(yestardayButton).click();
+			pressESC();
 		}
 
-		public void clickOnToday() {
+		public void clickOnToday() throws AWTException {
 			
 			driver.findElement(todayButton).click();
-			
-			
-			
-			
+			pressESC();
+		}
+		public void pressESC() throws AWTException
+		{
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ESCAPE);
+			try {
+			Thread.sleep(1000);
+			}
+			catch(Exception e) {
+				
+			}
 		}
 	
 
